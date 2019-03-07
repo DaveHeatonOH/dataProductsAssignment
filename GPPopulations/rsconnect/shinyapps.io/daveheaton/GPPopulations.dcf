@@ -1,0 +1,12 @@
+name: GPPopulations
+title: GPPopulations
+username:
+account: daveheaton
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 771598
+bundleId: 1921214
+url: https://daveheaton.shinyapps.io/GPPopulations/
+when: 1551921265.71281
+asMultiple: FALSE
+asStatic: FALSE

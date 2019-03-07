@@ -1,0 +1,21 @@
+---
+title: "GP Practice Population Tool - Documentation"
+author: "Dave Heaton"
+date: "7 March 2019"
+output: html_document
+---
+
+## Purpose of the tool
+This tool has been designed as a quick way for users to determin the populations of patients registered to a GP practice within a particular CCG and is aimed as a simple reference guide.
+
+## Functionality
+In attempting to keep this tool simple. Users are presented with a selection bar to the right hand side of the page where it is possible to pick a CCG. This is defaulted to NHS Darlington CCG. From here the map and table on the right had side will be updated to show both the locations and information relating to the populations in each practice.
+
+Within the map, each circle is sized to signify the population size (larger circles = larger population), in addition to this, users can click on the circles to see the Code, Name and population of the particular practice.
+
+The table below shows the same data in a slightly different format for those who require the data in that medium.
+
+## Sample Image
+```{r fig.align='center', echo=FALSE}
+knitr::include_graphics('C:/Users/dave_/OneDrive/GitHub/Coursera/Developing Data Products/Week 4 Assignment/General Practitioner Population/Presentation slides/Map Sample.png')
+```
