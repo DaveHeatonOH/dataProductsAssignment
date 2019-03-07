@@ -1,0 +1,20 @@
+.small-code pre code {
+  font-size: 1em;
+}
+
+.footer {
+    color: black; background: #E8E8E8;
+    position: fixed; top: 100%;
+    text-align:center; width:100%;
+}
+
+.mylinks li{
+    float:left;
+	list-style-type: none;
+	margin: 0 20px;
+
+}
+
+.mylinks a{
+	font-size: 20px;
+}

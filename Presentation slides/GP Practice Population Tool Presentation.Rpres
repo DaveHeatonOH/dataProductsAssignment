@@ -1,0 +1,71 @@
+GP Practice Population Tool Presentation
+========================================================
+author: Dave Heaton
+date: 07/03/2019
+autosize: true
+transition: rotate
+css: presentation.css
+
+```{r echo=FALSE, message=FALSE}
+library(dplyr)
+library(knitr)
+```
+Background
+========================================================
+- Data on the populations within GP Practices can be difficult and cumbersome to access through a minefield of CSV files and complex relationships. 
+
+- It is the intention of this interactive mapping tool to alleviate some of this burden by allowing users to select a higher level organisation, a Clinical Commissioning Group (CCG), and allow users to view the populations of GP practices within these CCGs.
+
+- The individual practices are depicted by dots, with differing sizes representing the population size for each organisation. Then in addition to this, a table representation is presented to allow further understanding.
+
+Loading The Data
+========================================================
+class: small-code
+The data was loaded from an existing GP Practice file - her ewe can see how it was loaded, along with creating a sample set:
+
+```{r loadData, message=FALSE}
+# Read in the population data
+popData <-read.csv("GP Practice Population Data.csv")
+sampleData <- popData %>%
+        select(CCG_NAME, PRACTICE_NAME, NUMBER_OF_PATIENTS) %>%
+        top_n(3)
+```
+
+Sample Data From Source
+========================================================
+class: small-code
+Now we can view that sample:
+```{r load data, message=FALSE}
+sampleData %>%
+        kable()
+```
+
+
+Shiny Server Calculation code
+========================================================
+class: small-code
+Here is the code that was used to make the map interactive by selecting a CCG:
+```{r shiny, message=FALSE, eval=FALSE}
+# This changes the selected data as per each selection from drop down
+        selectedOrgs <- reactive({
+                subset(popData, CCG_NAME == input$CCG)
+        })
+# Create the map based on selections
+        output$map <- renderLeaflet({
+          leaflet(selectedOrgs()) %>%
+                addTiles() %>%
+                addCircleMarkers(~longitude, ~latitude, 
+                 radius = ~NUMBER_OF_PATIENTS * 0.001,
+                 popup = ~paste("Practice Code:", CODE, "<br>",
+                        "Practice Name:", PRACTICE_NAME, "<br>",
+                        "Total Patients:", NUMBER_OF_PATIENTS))
+                  
+        })
+```
+
+<div class="footer" style="margin-top:-150px;font-size:80%;">
+<ul class="mylinks">
+        <li><a href="https://daveheaton.shinyapps.io/GPPopulations/">Link To App</a></li>
+        <li><a href="https://github.com/DaveyH1/dataProductsAssignment">Link To GitHub Repo</a></li>
+</ul>
+</div>
