@@ -21,7 +21,7 @@ Background
 Loading The Data
 ========================================================
 class: small-code
-The data was loaded from an existing GP Practice file - her ewe can see how it was loaded, along with creating a sample set:
+The data was loaded from an existing GP Practice file - here we can see how it was loaded, along with creating a sample set:
 
 ```{r loadData, message=FALSE}
 # Read in the population data
@@ -66,6 +66,6 @@ Here is the code that was used to make the map interactive by selecting a CCG:
 <div class="footer" style="margin-top:-150px;font-size:80%;">
 <ul class="mylinks">
         <li><a href="https://daveheaton.shinyapps.io/GPPopulations/">Link To App</a></li>
-        <li><a href="https://github.com/DaveyH1/dataProductsAssignment">Link To GitHub Repo</a></li>
+        <li><a href="https://github.com/DaveyH1/dataProductsAssignment">Link To GitHub Repo (Note ui.R and server.R in the GPPopulations folder)</a></li>
 </ul>
 </div>
